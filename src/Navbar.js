@@ -15,8 +15,14 @@ const Navbar = () => {
     const bottom = tempBtn.bottom - 3; // so we can lift submenu up by 3 pixels
     openSubmenu(page, { center, bottom });
   };
+  const handleSubmenu = (e) => {
+    // check to see if you're hovering over something with link-btn in its classList
+    if (!e.target.classList.contains('link-btn')) {
+      closeSubmenu();
+    }
+  };
   return (
-    <nav className="nav">
+    <nav className="nav" onMouseOver={handleSubmenu}>
       <div className="nav-center">
         <div className="nav-header">
           <img src={logo} alt="stripe logo" className="nav-logo" />
